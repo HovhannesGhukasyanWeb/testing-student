@@ -3,6 +3,7 @@ import storage from 'redux-persist/lib/storage'
 import { persistReducer, persistStore } from "redux-persist";
 import { thunk } from "redux-thunk";
 import user from "./slices/user";
+import table from "./slices/table";
 
 const persistConfig = {
     key: "testing-student",
@@ -11,7 +12,7 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-    user,
+    user, table
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
