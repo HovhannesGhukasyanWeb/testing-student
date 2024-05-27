@@ -51,13 +51,13 @@ const Questions = () => {
         })();
     }, [id]);
 
-    emblaApi.on('scroll', () => {
+    emblaApi?.on('scroll', () => {
         setCurrentQuestion(emblaApi.selectedScrollSnap() + 1);
     })
 
     return (
         <div className="w-full h-full">
-            <div className="relative w-full h-full">
+            <div className="w-full h-full">
                 <div className="shadow-lg w-full h-full bg-white min-h-[300px] rounded-lg">
 
                     <div className="border-b p-2 flex justify-between items-center">

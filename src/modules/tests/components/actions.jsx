@@ -12,7 +12,7 @@ const Actions = ({ test }) => {
         <div className="flex items-center gap-2">
             {canStartTest && status == "pending" ? (
                 <div>
-                    <Button className="flex items-center justify-center gap-2" onClick={() => navigate('/tests/' + test.test.id)}>
+                    <Button className="flex items-center justify-center gap-2" onClick={() => navigate('/tests/' + test.id)}>
                         <Play className="w-4 h-4" />
                         Start Test
                     </Button>

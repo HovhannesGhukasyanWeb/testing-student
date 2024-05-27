@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import ImageViewer from "../../../components/image-viewer";
 
 const Question = ({ question }) => {
     return (
@@ -11,7 +12,9 @@ const Question = ({ question }) => {
             </div>
             <div>
                 {question.image && (
-                    <img src={question.image} alt={question.title} className="w-full h-48 object-contain cursor-pointer" />
+                    <ImageViewer imageSrc={question.image}>
+                        <img src={question.image} alt={question.title} className="w-full h-48 object-contain cursor-pointer" />
+                    </ImageViewer>
                 )}
             </div>
             <div>
