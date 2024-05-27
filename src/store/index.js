@@ -2,15 +2,16 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import storage from 'redux-persist/lib/storage'
 import { persistReducer, persistStore } from "redux-persist";
 import { thunk } from "redux-thunk";
+import user from "./slices/user";
 
 const persistConfig = {
     key: "testing-student",
     storage,
-    whitelist: [/* here goes all reducers that you want to persist */],
+    whitelist: ["user"],
 };
 
 const rootReducer = combineReducers({
-    // here goes all reducers
+    user,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
