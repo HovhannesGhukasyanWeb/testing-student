@@ -7,6 +7,7 @@ import { getAxiosConfig } from "../../apis/config";
 import countDuration from "../../helpers/countDuration";
 import { setSelectedAnswers } from "../../store/slices/selectedAnswers";
 import { useDispatch } from "react-redux";
+import Timer from "./components/timer";
 
 const Test = () => {
     const { id } = useParams();
@@ -37,28 +38,31 @@ const Test = () => {
     }, [id, dispatch]);
 
     return (
-        <div className="flex items-center justify-center">
-            <div className="space-y-4 w-full ">
-                <Questions />
-                {test && (
-                    <div className="flex items-center gap-4 mt-2">
-                        <div className="w-1/2 shadow-2xl rounded-lg h-[220px] bg-white py-2">
-                            <h3 className="text-xl font-semibold p-2">Test Information</h3>
-                            <div className="mt-2">
-                                <p className="p-2">Name: {test.test.name}</p>
-                                <p className="p-2">Start Date: {test.test_data_from}</p>
-                                <p className="p-2">End Date: {test.test_data_to}</p>
-                                <p className="p-2">Duration: {countDuration(test.test_data_from, test.test_data_to)}</p>
+        <div>
+            <Timer />
+            <div className="flex items-center justify-center">
+                <div className="space-y-4 w-full ">
+                    <Questions />
+                    {test && (
+                        <div className="flex items-center gap-4 mt-2">
+                            <div className="w-1/2 shadow-2xl rounded-lg h-[220px] bg-white py-2">
+                                <h3 className="text-xl font-semibold p-2">Test Information</h3>
+                                <div className="mt-2">
+                                    <p className="p-2">Name: {test.test.name}</p>
+                                    <p className="p-2">Start Date: {test.test_data_from}</p>
+                                    <p className="p-2">End Date: {test.test_data_to}</p>
+                                    <p className="p-2">Duration: {countDuration(test.test_data_from, test.test_data_to)}</p>
+                                </div>
+                            </div>
+                            <div className="w-1/2 shadow-2xl rounded-lg h-[220px] bg-white py-2">
+                                <h3 className="text-xl font-semibold p-2">Subject Information</h3>
+                                <div className="mt-2">
+                                    <p className="p-2">Name: {test.test.subject.name}</p>
+                                </div>
                             </div>
                         </div>
-                        <div className="w-1/2 shadow-2xl rounded-lg h-[220px] bg-white py-2">
-                            <h3 className="text-xl font-semibold p-2">Subject Information</h3>
-                            <div className="mt-2">
-                                <p className="p-2">Name: {test.test.subject.name}</p>
-                            </div>
-                        </div>
-                    </div>
-                )}
+                    )}
+                </div>
             </div>
         </div>
     )
