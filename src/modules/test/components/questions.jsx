@@ -9,6 +9,7 @@ import Button from "../../../ui/button";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import QuestionSwticher from "./question-switcher";
 import { useSelector } from "react-redux";
+import SubmitTest from "./submit-test";
 
 const Questions = () => {
     const { id } = useParams();
@@ -69,9 +70,7 @@ const Questions = () => {
                         <div>
                             <QuestionSwticher goToQuestion={goToQuestion} currentQuestion={currentQuestion} questionsLength={questionsLength} />
                         </div>
-                        <Button>
-                            Submit Test
-                        </Button>
+                        <SubmitTest />
                     </div>
                     <div className="embla h-full" ref={emblaRef}>
                         <div className="embla__container h-full">
