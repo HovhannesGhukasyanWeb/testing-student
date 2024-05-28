@@ -6,6 +6,7 @@ import Layout from "./layout";
 const Login = React.lazy(() => import("./pages/auth/login"));
 const Tests = React.lazy(() => import("./pages/tests"));
 const NotFound = React.lazy(() => import("./modules/errors/not-found"));
+const Test = React.lazy(() => import("./pages/test"));
 
 const Router = () => {
     const { isAuthenticated } = useSelector((state) => state.user);
@@ -28,6 +29,7 @@ const Router = () => {
                     >
                         <Route index element={<div>Home</div>} />
                         <Route path="/tests" index element={<Tests />} />
+                        <Route path="/tests/:id" index element={<Test />} />
 
                         {/* 404 */}
                         <Route path="*" element={<NotFound />} />
