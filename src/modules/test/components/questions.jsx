@@ -8,9 +8,11 @@ import Question from "./question";
 import Button from "../../../ui/button";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import QuestionSwticher from "./question-switcher";
+import { useSelector } from "react-redux";
 
 const Questions = () => {
     const { id } = useParams();
+    const selectedAnswers = useSelector(state => state.selectedAnswers);
     const [testQuestions, setTestQuestions] = useState([]);
     const [currentQuestion, setCurrentQuestion] = useState(1);
     const questionsLength = testQuestions.length;
@@ -75,7 +77,7 @@ const Questions = () => {
                         <div className="embla__container h-full">
                             {testQuestions.map((question, index) => (
                                 <div className="embla__slide px-5 py-2 max-h-[300px] h-[300px] overflow-auto" key={index}>
-                                    <Question question={question} />
+                                    <Question selectedAnswers={selectedAnswers} question={question} />
                                 </div>
                             ))}
                         </div>
