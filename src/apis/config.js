@@ -7,7 +7,6 @@ export const getAxiosConfig = () => {
   const token = localStorage.getItem("authToken")
     ? localStorage.getItem("authToken")
     : "";
-
   return {
     headers: { Authorization: "Bearer " + token },
   };

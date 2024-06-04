@@ -1,7 +1,9 @@
-import React, { Suspense } from "react";
-import { useSelector } from "react-redux";
+import React, { Suspense, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
 import Layout from "./layout";
+import getMe from "./apis/getMe";
+import { logout } from "./store/slices/user";
 
 const Login = React.lazy(() => import("./pages/auth/login"));
 const Tests = React.lazy(() => import("./pages/tests"));
@@ -11,6 +13,18 @@ const TestResult = React.lazy(() => import("./pages/test-result"));
 
 const Router = () => {
     const { isAuthenticated } = useSelector((state) => state.user);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        if (isAuthenticated) {
+            (async () => {
+                try {
+                    await getMe();
+                } catch (error) {
+                    dispatch(logout());
+                }
+            })();
+        }
+    }, [dispatch, isAuthenticated]);
 
     return (
         <BrowserRouter basename="/">
