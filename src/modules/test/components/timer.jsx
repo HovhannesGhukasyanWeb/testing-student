@@ -1,7 +1,9 @@
 import { TimerIcon } from "lucide-react";
 import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 
-const Timer = () => {
+const Timer = ({ test }) => {
+    console.log(test)
     const [time, setTime] = useState(3600);
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
@@ -28,6 +30,10 @@ const Timer = () => {
             </div>
         </div>
     )
+}
+
+Timer.propTypes = {
+    test: PropTypes.object,
 }
 
 export default Timer;
