@@ -39,7 +39,7 @@ const Test = () => {
 
     return (
         <div>
-            <Timer />
+            <Timer test={test} />
             <div className="flex items-center justify-center">
                 <div className="space-y-4 w-full ">
                     <Questions />
