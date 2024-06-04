@@ -41,14 +41,14 @@ const TestResult = () => {
                     </div>
                     <h3 className="text-center mb-2 text-2xl">Test Result</h3>
                     <div className="mt-2">
-                        <div className="flex items-center gap-2">
-                            <div className="w-1/2">
+                        <div className="flex items-center gap-2 sm:flex-row sm:w-full flex-col">
+                            <div className="sm:w-1/2 w-full">
                                 <div className="w-full shadow-xl rounded-lg max-h-[400px] h-[400px] p-5">
                                     <p>Test: <span>{testResult.test?.name}</span></p>
                                     <p>Subject: <span>{testResult.test?.subject?.name}</span></p>
                                 </div>
                             </div>
-                            <div className="w-1/2">
+                            <div className="sm:w-1/2 w-full">
                                 <div className="w-full shadow-xl rounded-lg max-h-[400px] h-[400px] p-5">
                                     <p>Result: <span>{testResult.mark}</span></p>
                                     <p>Status: <span>{testResult.status}</span></p>

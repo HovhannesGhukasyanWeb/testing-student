@@ -14,14 +14,14 @@ const Actions = ({ test }) => {
     return (
         <div className="flex items-center gap-2">
             {canStartTest && status == "pending" ? (
-                <Button className="flex items-center justify-center gap-2" onClick={() => navigate('/tests/' + test.id)}>
+                <Button className="flex items-center justify-center gap-2" onClick={() => navigate('/tests/' + test.test_id)}>
                     <Play className="w-4 h-4" />
                     Start Test
                 </Button>
             ) : null}
 
             {canSeeResult ? (
-                <Button variant="success" className="flex items-center justify-center gap-2" onClick={() => navigate('/tests/' + test.id + "/result")}>
+                <Button variant="success" className="flex items-center justify-center gap-2" onClick={() => navigate('/tests/' + test.test_id + "/result")}>
                     <Eye className="w-4 h-4" />
                     See Test Result
                 </Button>

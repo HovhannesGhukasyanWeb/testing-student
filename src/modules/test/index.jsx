@@ -17,7 +17,7 @@ const Test = () => {
     useEffect(() => {
         (async () => {
             try {
-                const { data: response } = await baseApi.get('site/test/1', getAxiosConfig());
+                const { data: response } = await baseApi.get('site/test/' + id, getAxiosConfig());
                 setTest(response.data);
             } catch (error) {
                 errorAlert("Failed to fetch test")
