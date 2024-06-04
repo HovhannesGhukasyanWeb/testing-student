@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 import { useNavigate, useParams } from "react-router-dom";
-import { updateApi } from "../../../apis/baseCrudApi";
 import handleError from "../../../helpers/handleError";
 import { useState } from "react";
 import { Loader2 } from "lucide-react";
+import { confirmTest } from '../utils/confirm-test';
 
 const ConfirmTest = ({ setShowDialog }) => {
     const { id: testId } = useParams();
@@ -12,8 +12,8 @@ const ConfirmTest = ({ setShowDialog }) => {
     const onConfirm = async () => {
         try {
             setLoading(true);
-            await updateApi(`site/submitTest/` + testId, {});
-            navigate(`/test/${testId}/result`);
+            confirmTest(testId);
+            navigate(`/tests/${testId}/result`);
         } catch (error) {
             handleError(error);
         } finally {
