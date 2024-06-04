@@ -11,10 +11,10 @@ const Navbar = () => {
 
     return (
         <div className="bg-white py-3 flex justify-between items-center px-5 border-b border-lightgray">
-            <div>
+            <div className="sm:block hidden">
                 <h1 className="text-lg font-semibold">Testing Platform for Students</h1>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 sm:w-auto w-full sm:justify-start justify-between">
                 <p className="text-sm">
                     Welcome student, <a href="/profile" className="font-semibold underline">{user.username}</a>
                 </p>
