@@ -12,6 +12,7 @@ let timeInterval = null;
 
 const Timer = ({ test }) => {
     const navigate = useNavigate();
+    const [testStarted, setTestStarted] = useState(false);
     const [time, setTime] = useState(3600);
     const [isAlerted, setIsAlerted] = useState(false);
     const minutes = Math.floor(time / 60);
@@ -22,6 +23,7 @@ const Timer = ({ test }) => {
             const startTime = new Date(test.test_data_from) > new Date() ? new Date(test.test_data_from) : new Date();
             const durationInSeconds = countDurationInSeconds(startTime, test.test_data_to);
             setTime(localStorage.getItem(`test-${test.test_id}-time`) || durationInSeconds);
+            setTestStarted(true);
         }
     }, [test]);
 
@@ -37,7 +39,7 @@ const Timer = ({ test }) => {
     }, [test]);
 
     useEffect(() => {
-        if (test) {
+        if (test && testStarted) {
             try {
                 if (time <= 0) {
                     setTime(0);
@@ -55,7 +57,7 @@ const Timer = ({ test }) => {
                 handleError(error);
             }
         }
-    }, [time, test, isAlerted, navigate]);
+    }, [time, test, isAlerted, navigate, testStarted]);
 
     return (
         <div className="flex justify-end py-2">

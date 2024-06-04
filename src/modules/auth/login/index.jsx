@@ -75,11 +75,10 @@ const Login = () => {
 
     return (
         <div className="h-full flex items-center justify-center">
-            <div className="w-[500px] bg-white rounded-lg shadow-lg">
+            <div className="w-[500px] bg-white rounded-lg shadow-lg sm:px-0 px-4">
                 <div className="px-2 py-4 border-b border-lightgray">
                     <h1 className="text-center font-semibold text-xl">Login as Student</h1>
                 </div>
-
                 <div className="px-2 py-4">
                     <form onSubmit={loginHandler}>
                         <div className="mb-4">
